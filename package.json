@@ -24,6 +24,7 @@
     "test": "npm run test --workspace server && npm run test:web",
     "test:web": "npm exec --workspace server -- tsx --test ../web/src/lib/*.test.ts",
     "test:e2e": "playwright test",
+    "capture:docs": "node scripts/capture-doc-images.mjs",
     "typecheck": "npm run --workspace server exec -- tsc -p tsconfig.json --noEmit && npm run --workspace web exec -- tsc -b",
     "docker:up": "docker compose up -d --build",
     "prepublishOnly": "npm run build"

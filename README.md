@@ -40,8 +40,9 @@ You love Claude Code but you're tied to a terminal on a machine that has to stay
 
 |  |  |
 |---|---|
-| ![Dashboard](docs/images/dashboard.png) | ![Plan approval](docs/images/plan-approval.png) |
-| ![Task detail](docs/images/task-detail.png) | ![Files](docs/images/files.png) |
+| ![Nexotao Orce dashboard](docs/images/dashboard.png) | ![Review-first task DAG approval](docs/images/plan-approval.png) |
+| ![Cross-run task board with recovery status](docs/images/tasks.png) | ![Task brief, dependencies, timeline, and output](docs/images/task-detail.png) |
+| ![Single-agent chat with tool evidence](docs/images/chat.png) | ![Workspace file explorer](docs/images/files.png) |
 
 ---
 

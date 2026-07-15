@@ -19,8 +19,19 @@
 - Clean disposable sample repository and seed commit
 - Local Orce install with fake project/user names
 - Provider test credential stored off-screen; browser autofill and notifications disabled
-- 1440×900 capture, readable 125% UI scale, captions, and cursor highlight
+- 1440×960 capture, readable UI scale, captions, and cursor highlight
 - Prepared successful run and prepared failure state to avoid live-provider variance
 - Sanitization pass for terminal history, paths, keys, prompts, source, browser tabs, and notifications
 - Captions/transcript, 90-second MP4/WebM, poster image, and three stills (plan, parallel run, recovery)
 - Claims checked against [invariants](invariants.md), [failure matrix](failure-matrix.md), and [baseline](baseline.md)
+
+## Refresh the README stills
+
+Start the web app, then run the deterministic, sanitized capture set against its URL:
+
+```bash
+npm run --workspace web dev -- --host 127.0.0.1
+ORCE_CAPTURE_URL=http://127.0.0.1:5173 npm run capture:docs
+```
+
+The capture script replaces the README images in `docs/images/` with current UI renders. Its fixture data uses only fictional project names, paths, tasks, and provider outcomes.
