@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      APP_PASSWORD: ${APP_PASSWORD:?set APP_PASSWORD in your .env}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in your .env}
+      # For container deploys you must provide an API key (there's no CLI login
+      # inside the container). Get one at https://console.anthropic.com
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:?set ANTHROPIC_API_KEY in your .env}
+      DATABASE_URL: ${DATABASE_URL:-}
+      PERMISSION_MODE: ${PERMISSION_MODE:-acceptEdits}
+      NODE_ENV: production
+      PORT: 8787
+    volumes:
+      # Persist the agent's working files across restarts.
+      - agent-workspace:/app/server/workspace
+
+volumes:
+  agent-workspace:

@@ -1,0 +1,70 @@
+{
+  "name": "nexotao-orce",
+  "version": "0.2.13",
+  "description": "Self-hostable web console for Claude Code — chat plus planner-driven multi-agent orchestration (Orce). Pull, run, and prompt from any device.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "nexotao": "bin/nexotao-orce.mjs",
+    "nexotao-orce": "bin/nexotao-orce.mjs"
+  },
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "build": "npm run build --workspace web && npm run build --workspace server",
+    "start": "node bin/nexotao-orce.mjs",
+    "dev:server": "npm run dev --workspace server",
+    "dev:web": "npm run dev --workspace web",
+    "test": "npm run test --workspace server && npm run test:web",
+    "test:web": "npm exec --workspace server -- tsx --test ../web/src/lib/*.test.ts",
+    "test:e2e": "playwright test",
+    "typecheck": "npm run --workspace server exec -- tsc -p tsconfig.json --noEmit && npm run --workspace web exec -- tsc -b",
+    "docker:up": "docker compose up -d --build",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.207",
+    "@electric-sql/pglite": "^0.5.4",
+    "@hono/node-server": "^1.13.7",
+    "@neondatabase/serverless": "^0.10.4",
+    "dotenv": "^16.4.7",
+    "hono": "^4.6.14",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  },
+  "files": [
+    "bin",
+    "server/dist",
+    "server/package.json",
+    "web/dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "anthropic",
+    "ai-agents",
+    "agent-orchestration",
+    "multi-agent",
+    "self-hosted",
+    "llm"
+  ],
+  "author": "Rizky Riyadi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizkyriyadi/nexotao-orchestrator.git"
+  },
+  "homepage": "https://github.com/rizkyriyadi/nexotao-orchestrator#readme",
+  "bugs": {
+    "url": "https://github.com/rizkyriyadi/nexotao-orchestrator/issues"
+  }
+}

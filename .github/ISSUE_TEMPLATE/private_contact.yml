@@ -1,0 +1,15 @@
+name: Private contact request
+description: Request a private maintainer channel without disclosing security or conduct details.
+title: "Private maintainer contact requested"
+labels: [triage]
+body:
+  - type: markdown
+    attributes:
+      value: "Use this only when GitHub private advisories are unavailable. Do not include vulnerability, exploit, credential, private log, source, customer, or conduct-report details in this public form."
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Public-content check
+      options:
+        - label: I am requesting a private channel and have included no sensitive details.
+          required: true

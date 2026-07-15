@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a bounded user outcome.
+title: "[Feature]: "
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Who is blocked, in what workflow, and what evidence shows the problem?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Smallest testable outcome
+    validations:
+      required: true
+  - type: textarea
+    id: reliability
+    attributes:
+      label: Failure and recovery behavior
+      description: What should happen on restart, retry, disconnect, provider failure, and partial writes?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

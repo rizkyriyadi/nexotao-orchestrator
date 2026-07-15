@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a reproducible Orce problem using synthetic data.
+title: "[Bug]: "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not report vulnerabilities or paste secrets, private logs, source code, paths, prompts, or customer data. Use the private process in SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: "0.2.13 or git SHA"
+    validations:
+      required: true
+  - type: dropdown
+    id: storage
+    attributes:
+      label: Storage mode
+      options: [Embedded PGlite, External Postgres/Neon, In-memory, Unknown]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction
+      description: Minimal steps using synthetic data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual outcome
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostic export (optional)
+      description: Review the local-only JSON before attaching it. Do not attach raw logs or database files.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, prompts, source content, private paths, and customer data.
+          required: true

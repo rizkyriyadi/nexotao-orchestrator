@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Targeted unit and embedded-database fault suite
+        run: npm test
+      - name: Build (typecheck + bundle web & server)
+        run: npm run build
+      - name: Install Chromium for Orce recovery paths
+        run: npx playwright install --with-deps chromium
+      - name: Browser happy-path and recovery gate
+        run: npm run test:e2e

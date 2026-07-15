@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Private security report
+    url: https://github.com/rizkyriyadi/nexotao-orchestrator/security/advisories/new
+    about: Report vulnerabilities privately. Never include secrets or private data in a public issue.
