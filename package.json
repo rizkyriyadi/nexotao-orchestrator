@@ -1,6 +1,6 @@
 {
   "name": "nexotao-orce",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "description": "Self-hostable web console for Claude Code — chat plus planner-driven multi-agent orchestration (Orce). Pull, run, and prompt from any device.",
   "type": "module",
   "license": "MIT",
